@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LanguageBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notify = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // OPbutton
@@ -141,10 +141,11 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "目标语言 :";
             // 
-            // notifyIcon1
+            // notify
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.notify.Icon = ((System.Drawing.Icon)(resources.GetObject("notify.Icon")));
+            this.notify.Text = "CTranslator";
+            this.notify.Visible = true;
             // 
             // TIdentifier
             // 
@@ -184,7 +185,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox LanguageBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon notify;
     }
 }
 

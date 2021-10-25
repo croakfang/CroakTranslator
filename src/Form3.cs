@@ -67,7 +67,7 @@ namespace CroakTranslator
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
+            this.TopMost = true;
         }
 
         private void label1_Click(object sender, EventArgs e)

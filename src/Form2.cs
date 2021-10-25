@@ -90,6 +90,7 @@ namespace CroakTranslator
         private void Form2_Load(object sender, EventArgs e)
         {
             MainPainter = this.CreateGraphics();
+            this.TopMost = true;
         }
 
 
