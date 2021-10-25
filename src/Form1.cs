@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace CroakTranslator
 {
-    public partial class TIdentifier : Form
+    public partial class MainForm : Form
     {
-        public TIdentifier()
+        public MainForm()
         {
             InitializeComponent();
             this.MaximumSize = new Size(
@@ -22,7 +22,7 @@ namespace CroakTranslator
             LanguageBox.SelectedIndex = int.Parse(Client.DES);
         }
 
-        private void OPbutton_Click(object sender, EventArgs e)
+        private void OFbutton_Click(object sender, EventArgs e)
         {
 
             OpenFileDialog file = new OpenFileDialog();
@@ -41,7 +41,7 @@ namespace CroakTranslator
 
         }
 
-        private void JPbutton_Click(object sender, EventArgs e)
+        private void SHbutton_Click(object sender, EventArgs e)
         {
             Image img = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
             Graphics g = Graphics.FromImage(img);
@@ -80,7 +80,7 @@ namespace CroakTranslator
             };
         }
 
-        private void TIdentifier_FormClosed(object sender, FormClosedEventArgs e)
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             HotKey.UnregisterHotKey(Handle, 100);
         }
@@ -88,17 +88,9 @@ namespace CroakTranslator
         class HotKey
         {
             [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-            public static extern bool RegisterHotKey(IntPtr hWnd,                //要定义热键的窗口的句柄
-               int id,                     //定义热键ID（不能与其它ID重复）
-                KeyModifiers fsModifiers,   //标识热键是否在按Alt、Ctrl、Shift、Windows等键时才会生效
-                Keys vk                     //定义热键的内容
-                );
+            public static extern bool RegisterHotKey(IntPtr hWnd,int id, KeyModifiers fsModifiers,Keys vk);
             [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-            public static extern bool UnregisterHotKey(
-                IntPtr hWnd,                //要取消热键的窗口的句柄
-                int id                      //要取消热键的ID
-                );
-            //定义了辅助键的名称（将数字转变为字符以便于记忆，也可去除此枚举而直接使用数值）
+            public static extern bool UnregisterHotKey(IntPtr hWnd,int id);
             [Flags()]
             public enum KeyModifiers
             {
@@ -128,7 +120,7 @@ namespace CroakTranslator
             base.WndProc(ref m);
         }
 
-        private void TIdentifier_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             HotKey.RegisterHotKey(Handle, 100, HotKey.KeyModifiers.Ctrl, Keys.B);
         }
@@ -151,6 +143,35 @@ namespace CroakTranslator
             Client.SaveSetting();
         }
 
-        
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void SHMenuItem_Click(object sender, EventArgs e)
+        {
+            SHbutton_Click(null, null);
+        }
+
+        private void OpenfileMenuItem_Click(object sender, EventArgs e)
+        {
+            OFbutton_Click(null,null);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)         
+            {
+                e.Cancel = true;
+                this.ShowInTaskbar = false;
+                this.Hide();
+            }
+        }
+
+        private void notify_DoubleClick(object sender, EventArgs e)
+        {
+            this.ShowInTaskbar = true;
+            this.Show();
+        }
     }
 }

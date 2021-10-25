@@ -1,6 +1,6 @@
 ﻿namespace CroakTranslator
 {
-    partial class TIdentifier
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TIdentifier));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.OPbutton = new System.Windows.Forms.Button();
             this.JPbutton = new System.Windows.Forms.Button();
             this.appidText = new System.Windows.Forms.TextBox();
@@ -39,6 +39,11 @@
             this.LanguageBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.notify = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.OpenfileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.JPMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // OPbutton
@@ -50,7 +55,7 @@
             this.OPbutton.TabIndex = 0;
             this.OPbutton.Text = "打开图片";
             this.OPbutton.UseVisualStyleBackColor = true;
-            this.OPbutton.Click += new System.EventHandler(this.OPbutton_Click);
+            this.OPbutton.Click += new System.EventHandler(this.OFbutton_Click);
             // 
             // JPbutton
             // 
@@ -61,7 +66,7 @@
             this.JPbutton.TabIndex = 0;
             this.JPbutton.Text = "截屏（CTRL+B）";
             this.JPbutton.UseVisualStyleBackColor = true;
-            this.JPbutton.Click += new System.EventHandler(this.JPbutton_Click);
+            this.JPbutton.Click += new System.EventHandler(this.SHbutton_Click);
             // 
             // appidText
             // 
@@ -143,11 +148,43 @@
             // 
             // notify
             // 
+            this.notify.ContextMenuStrip = this.contextMenu;
             this.notify.Icon = ((System.Drawing.Icon)(resources.GetObject("notify.Icon")));
             this.notify.Text = "CTranslator";
             this.notify.Visible = true;
+            this.notify.DoubleClick += new System.EventHandler(this.notify_DoubleClick);
             // 
-            // TIdentifier
+            // contextMenu
+            // 
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenfileMenuItem,
+            this.JPMenuItem,
+            this.Exit});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(125, 70);
+            // 
+            // OpenfileMenuItem
+            // 
+            this.OpenfileMenuItem.Name = "OpenfileMenuItem";
+            this.OpenfileMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.OpenfileMenuItem.Text = "打开图片";
+            this.OpenfileMenuItem.Click += new System.EventHandler(this.OpenfileMenuItem_Click);
+            // 
+            // JPMenuItem
+            // 
+            this.JPMenuItem.Name = "JPMenuItem";
+            this.JPMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.JPMenuItem.Text = "截屏";
+            this.JPMenuItem.Click += new System.EventHandler(this.SHMenuItem_Click);
+            // 
+            // Exit
+            // 
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(124, 22);
+            this.Exit.Text = "退出";
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,10 +203,12 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimumSize = new System.Drawing.Size(200, 200);
-            this.Name = "TIdentifier";
+            this.Name = "MainForm";
             this.Text = "CTranslator";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TIdentifier_FormClosed);
-            this.Load += new System.EventHandler(this.TIdentifier_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.contextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,6 +225,10 @@
         private System.Windows.Forms.ComboBox LanguageBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NotifyIcon notify;
+        private System.Windows.Forms.ContextMenuStrip contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem OpenfileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem JPMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Exit;
     }
 }
 

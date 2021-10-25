@@ -14,7 +14,7 @@ namespace CroakTranslator
     public partial class Form2 : Form
     {
         public Image ig;
-        public TIdentifier Form;
+        public MainForm Form;
         public int OriX, OriY,EndX,EndY;
         public int DrawW = 0, DrawH = 0;
         Pen pen = new Pen(Color.Red, 3);
@@ -32,6 +32,15 @@ namespace CroakTranslator
         private void Form2_Deactivate(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Form2_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs t = (MouseEventArgs)e;
+            if (t.Button == MouseButtons.Right)
+            {
+                this.Hide();
+            }
         }
 
         private void Form2_MouseUp(object sender, MouseEventArgs e)
@@ -80,11 +89,12 @@ namespace CroakTranslator
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Deactivate += new System.EventHandler(this.Form2_Deactivate);
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.Click += new System.EventHandler(this.Form2_Click);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseUp);
             this.ResumeLayout(false);
-            
+
         }
 
         private void Form2_Load(object sender, EventArgs e)

@@ -17,7 +17,7 @@ namespace CroakTranslator
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TIdentifier());
+            Application.Run(new MainForm());
         }
     }
 }
