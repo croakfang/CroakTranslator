@@ -49,9 +49,9 @@
             // OPbutton
             // 
             this.OPbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.OPbutton.Location = new System.Drawing.Point(37, 111);
+            this.OPbutton.Location = new System.Drawing.Point(27, 111);
             this.OPbutton.Name = "OPbutton";
-            this.OPbutton.Size = new System.Drawing.Size(128, 52);
+            this.OPbutton.Size = new System.Drawing.Size(149, 52);
             this.OPbutton.TabIndex = 0;
             this.OPbutton.Text = "打开图片";
             this.OPbutton.UseVisualStyleBackColor = true;
@@ -60,11 +60,11 @@
             // JPbutton
             // 
             this.JPbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.JPbutton.Location = new System.Drawing.Point(37, 169);
+            this.JPbutton.Location = new System.Drawing.Point(27, 169);
             this.JPbutton.Name = "JPbutton";
-            this.JPbutton.Size = new System.Drawing.Size(128, 52);
+            this.JPbutton.Size = new System.Drawing.Size(149, 52);
             this.JPbutton.TabIndex = 0;
-            this.JPbutton.Text = "截屏（CTRL+B）";
+            this.JPbutton.Text = "截屏（Ctrl+Shift+E）";
             this.JPbutton.UseVisualStyleBackColor = true;
             this.JPbutton.Click += new System.EventHandler(this.SHbutton_Click);
             // 

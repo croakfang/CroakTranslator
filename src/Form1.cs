@@ -111,7 +111,7 @@ namespace CroakTranslator
                 case WM_HOTKEY:
                     switch (m.WParam.ToInt32())
                     {
-                        case 100:
+                        case 160:
                             JPbutton.PerformClick();
                             break;
                     }
@@ -119,10 +119,10 @@ namespace CroakTranslator
             }
             base.WndProc(ref m);
         }
-
+        
         private void MainForm_Load(object sender, EventArgs e)
         {
-            HotKey.RegisterHotKey(Handle, 100, HotKey.KeyModifiers.Ctrl, Keys.B);
+            HotKey.RegisterHotKey(Handle, 160, HotKey.KeyModifiers.Ctrl| HotKey.KeyModifiers.Shift, Keys.E);
         }
 
         private void appidText_TextChanged(object sender, EventArgs e)
@@ -167,7 +167,7 @@ namespace CroakTranslator
                 this.Hide();
             }
         }
-
+        
         private void notify_DoubleClick(object sender, EventArgs e)
         {
             this.ShowInTaskbar = true;
